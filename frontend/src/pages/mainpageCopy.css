@@ -1,0 +1,74 @@
+/* Main container layout with top space for the header */
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    padding: 80px 20px 20px; 
+    gap: 20px;
+}
+
+.sidebar,
+.right-sidebar {
+    width: 20%;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    min-height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.filters {
+    width: 100%;
+}
+
+.category-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px;
+}
+
+.category-buttons button {
+    padding: 10px 16px;
+    border: none;
+    cursor: pointer;
+    background-color: #e0e0e0;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.category-buttons button:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.category-buttons .active {
+    background-color: #0056b3;
+    color: white;
+}
+
+.map-container {
+    flex-grow: 1;
+    max-width: 750px; 
+    height: 550px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.leaflet-container {
+    width: 100%;
+    height: 100%;
+}
