@@ -7,15 +7,11 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "./Map.css";
 
-import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
-import markerIcon from "leaflet/dist/images/marker-icon.png";
-import markerShadow from "leaflet/dist/images/marker-shadow.png";
-
-delete L.Icon.Default.prototype._getIconUrl;
+// ✅ Use marker icons from public folder (to fix missing markers on Render)
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl: markerIcon2x,
-  iconUrl: markerIcon,
-  shadowUrl: markerShadow,
+  iconRetinaUrl: "/leaflet/marker-icon-2x.png",
+  iconUrl: "/leaflet/marker-icon.png",
+  shadowUrl: "/leaflet/marker-shadow.png",
 });
 
 const API_URL = `${import.meta.env.VITE_API_URL}/api/locations`;
@@ -130,3 +126,4 @@ MapComponent.propTypes = {
 };
 
 export default MapComponent;
+
