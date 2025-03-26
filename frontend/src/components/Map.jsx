@@ -7,16 +7,20 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "./Map.css";
 
-// ✅ Use custom blue marker icon from public/leaflet folder (no shadow)
-const blueIcon = new L.Icon({
-  iconUrl: "/leaflet/marker-icon.png",
+// ✅ Use marker icons from public folder (to fix missing markers on Render)
+L.Icon.Default.mergeOptions({
   iconRetinaUrl: "/leaflet/marker-icon-2x.png",
-  iconSize: [32, 32],
-  iconAnchor: [16, 32],
-  popupAnchor: [0, -32],
+  iconUrl: "/leaflet/marker-icon.png",
+  shadowUrl: "/leaflet/marker-shadow.png",
 });
 
 const API_URL = `${import.meta.env.VITE_API_URL}/api/locations`;
+
+const userIcon = new L.Icon({
+  iconUrl: "https://maps.gstatic.com/mapfiles/ms2/micons/red-dot.png",
+  iconSize: [32, 32],
+  iconAnchor: [16, 32],
+});
 
 const MapComponent = ({ selectedCategory }) => {
   const [locations, setLocations] = useState([]);
@@ -76,7 +80,7 @@ const MapComponent = ({ selectedCategory }) => {
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
         {userLocation && (
-          <Marker position={[userLocation.lat, userLocation.lng]} icon={blueIcon}>
+          <Marker position={[userLocation.lat, userLocation.lng]} icon={userIcon}>
             <Popup>
               <strong>You are here</strong>
             </Popup>
@@ -87,7 +91,6 @@ const MapComponent = ({ selectedCategory }) => {
           <Marker
             key={index}
             position={[loc.latitude, loc.longitude]}
-            icon={blueIcon}
             eventHandlers={{
               click: (e) => {
                 setActivePopup(e.target._popup);
