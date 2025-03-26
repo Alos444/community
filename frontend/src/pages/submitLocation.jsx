@@ -39,7 +39,8 @@ const SubmitLocation = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5001/api/submit-location", formData);
+     await axios.post("https://community-esic.onrender.com/api/submit-location", formData);
+
       setSubmitted(true);
       setTimeout(() => navigate("/"), 3000);
     } catch (err) {

@@ -7,7 +7,8 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "./Map.css";
 
-const API_URL = "http://localhost:5001/api/locations";
+const API_URL = "https://community-esic.onrender.com/api/locations";
+
 
 const userIcon = new L.Icon({
   iconUrl: "https://maps.gstatic.com/mapfiles/ms2/micons/red-dot.png",
