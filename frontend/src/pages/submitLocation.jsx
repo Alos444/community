@@ -39,7 +39,7 @@ const SubmitLocation = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-     await axios.post("https://community-esic.onrender.com/api/submit-location", formData);
+      axios.post(`${import.meta.env.VITE_API_URL}/api/submit-location`, formData)
 
       setSubmitted(true);
       setTimeout(() => navigate("/"), 3000);
